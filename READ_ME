@@ -1,0 +1,32 @@
+A UFT Client and Server program to transfer a binary file. The client connects to the server and uploads a file to
+the server over a UDP socket. Simulates data loss and corruption which would be common in UDP file transfers.
+
+Author: Andrew Jarombek
+Date: 3/29/2016
+Files: Simulate.java, UFTServer.java, UFTClient.java
+
+How To Run The Program:
+
+Compile the Simulate.java file followed by the UFTServer.java and UFTClient.java files.
+Run the UFTServer.java file followed by the UFTClient.java file.  Both files will be running simultaneously.
+
+The UTFServer file will be run with three additional inputs.  The first is the new file you would like the server
+to create, the second is the chance of a corrupted packet and the third is the chance of a packet being lost.
+
+Example of UTFServer run in the command line:
+
+java UFTServer SLU1received.jpg 0.0 0.0	        No corruption nor loss
+java UFTServer SLU1received.jpg 0.5 0.0	        50% corruption and no loss
+java UFTServer SLU1received.jpg 0.0 0.1	        No corruption and 10% loss
+java UFTServer SLU1received.jpg 0.05 0.01	    5% corruption and 1% loss
+
+The UTFServer file will be run with five additional inputs.  The first is the hostname of the server, the second is
+the name of the file to be transferred, the third is the packet size in bytes, the fourth is the chance of a
+corrupted packet and the fifth is the chance of a packet being lost.
+
+Example of UTFClient run in the command line:
+
+java UFTClient localhost SLU1.jpg 500 0.0 0.0	    No corruption nor loss
+java UFTClient localhost SLU1.jpg 500 0.5 0.0	    50% corruption and no loss
+java UFTClient localhost SLU1.jpg 500 0.0 0.1	    No corruption and 10% loss
+java UFTClient localhost SLU1.jpg 500 0.05 0.01	    5% corruption and 1% loss
